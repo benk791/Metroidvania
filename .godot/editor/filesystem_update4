@@ -1,3 +1,6 @@
-res://character/character.tscn
 res://character/character.gd
 res://UI/HealthBar.tres
+res://levels/StartZone/beach.tscn
+res://character/character.tscn
+res://character/PlayerSpawn.gd
+res://UI/menu.gd
