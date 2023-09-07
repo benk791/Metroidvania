@@ -1,0 +1,411 @@
+[gd_scene load_steps=23 format=3 uid="uid://b15hcaijy7fx5"]
+
+[ext_resource type="Texture2D" uid="uid://bt824g20rfc78" path="res://assets/images/Background.png" id="1_gg4k6"]
+[ext_resource type="Texture2D" uid="uid://dxycvn5qxdejd" path="res://assets/images/OceanBottom.png" id="2_vs1og"]
+[ext_resource type="Script" path="res://UI/menu.gd" id="2_wkdmv"]
+[ext_resource type="Script" path="res://NPC/ocean.gd" id="3_7hf0t"]
+[ext_resource type="Theme" uid="uid://guux41q4ngwk" path="res://UI/TitleTheme2.tres" id="3_ddru2"]
+[ext_resource type="Script" path="res://NPC/OceanTop.gd" id="3_vpj1g"]
+[ext_resource type="Texture2D" uid="uid://q1uo7cicfpkq" path="res://assets/images/Bird.png" id="4_apjr0"]
+[ext_resource type="Texture2D" uid="uid://c418rx215gg6" path="res://assets/images/OceanTop.png" id="4_uwy2j"]
+[ext_resource type="Script" path="res://NPC/bird.gd" id="5_1wx36"]
+[ext_resource type="Texture2D" uid="uid://c4xibxua1yt0r" path="res://assets/images/plaformTilesMenu.png" id="8_wknic"]
+[ext_resource type="Texture2D" uid="uid://c4laeob000oyd" path="res://assets/images/decorationTilesMenu.png" id="9_j3qfw"]
+[ext_resource type="Texture2D" uid="uid://b22v8b11jlbxr" path="res://assets/images/Player/pixil-layer-Layer 1(2).png" id="9_jvofd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7f0n"]
+atlas = ExtResource("4_apjr0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmlno"]
+atlas = ExtResource("4_apjr0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42rk8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7f0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmlno")
+}],
+"loop": true,
+"name": &"flight",
+"speed": 5.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo46y"]
+texture = ExtResource("8_wknic")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6p8hs"]
+sources/0 = SubResource("TileSetAtlasSource_wo46y")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_suyqx"]
+texture = ExtResource("9_j3qfw")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/animation_frame_0/duration = 1.0
+4:0/animation_frame_1/duration = 1.0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/animation_frame_0/duration = 1.0
+4:1/animation_frame_1/duration = 1.0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/animation_frame_0/duration = 1.0
+4:2/animation_frame_1/duration = 1.0
+4:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/animation_frame_0/duration = 1.0
+4:3/animation_frame_1/duration = 1.0
+4:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/animation_speed = 4.0
+0:4/animation_frame_0/duration = 1.0
+0:4/animation_frame_1/duration = 1.0
+0:4/animation_frame_2/duration = 1.0
+0:4/animation_frame_3/duration = 1.0
+0:4/0 = 0
+4:4/animation_frame_0/duration = 1.0
+4:4/animation_frame_1/duration = 1.0
+4:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/animation_speed = 3.0
+0:5/animation_frame_0/duration = 1.0
+0:5/animation_frame_1/duration = 1.0
+0:5/animation_frame_2/duration = 1.0
+0:5/animation_frame_3/duration = 1.0
+0:5/0 = 0
+4:5/animation_frame_0/duration = 1.0
+4:5/animation_frame_1/duration = 1.0
+4:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/animation_frame_0/duration = 1.0
+4:6/animation_frame_1/duration = 1.0
+4:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/animation_frame_0/duration = 1.0
+4:7/animation_frame_1/duration = 1.0
+4:7/0 = 0
+6:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/animation_frame_0/duration = 1.0
+2:8/animation_frame_1/duration = 1.0
+2:8/0 = 0
+4:8/animation_frame_0/duration = 1.0
+4:8/animation_frame_1/duration = 1.0
+4:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_m4jvv"]
+sources/0 = SubResource("TileSetAtlasSource_suyqx")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj3eo"]
+atlas = ExtResource("9_jvofd")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aahm8"]
+atlas = ExtResource("9_jvofd")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysj2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj3eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aahm8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Menu" type="Node"]
+process_mode = 3
+
+[node name="Art" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="Clouds" type="TextureRect" parent="Art"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -960.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gg4k6")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="OceanTop" type="TextureRect" parent="Art"]
+offset_left = -64.0
+offset_top = 108.0
+offset_right = 266.0
+offset_bottom = 252.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_vs1og")
+stretch_mode = 1
+script = ExtResource("3_vpj1g")
+
+[node name="OceanBottom" type="TextureRect" parent="Art"]
+offset_left = -64.0
+offset_top = 108.0
+offset_right = 266.0
+offset_bottom = 252.0
+scale = Vector2(3, 3)
+texture = ExtResource("4_uwy2j")
+stretch_mode = 1
+script = ExtResource("3_7hf0t")
+
+[node name="BirdBack1" type="AnimatedSprite2D" parent="Art"]
+position = Vector2(1164, 64)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_42rk8")
+animation = &"flight"
+autoplay = "flight"
+script = ExtResource("5_1wx36")
+
+[node name="BirdFront1" type="AnimatedSprite2D" parent="Art"]
+position = Vector2(116, 128)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_42rk8")
+animation = &"flight"
+autoplay = "flight"
+script = ExtResource("5_1wx36")
+
+[node name="BirdBack2" type="AnimatedSprite2D" parent="Art"]
+position = Vector2(1248, 120)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_42rk8")
+animation = &"flight"
+autoplay = "flight"
+script = ExtResource("5_1wx36")
+
+[node name="BirdFront2" type="AnimatedSprite2D" parent="Art"]
+position = Vector2(168, 164)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_42rk8")
+animation = &"flight"
+autoplay = "flight"
+script = ExtResource("5_1wx36")
+
+[node name="CliffTiles" type="TileMap" parent="Art"]
+position = Vector2(0, -68)
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_6p8hs")
+format = 2
+layer_0/tile_data = PackedInt32Array(524304, 65536, 1, 524305, 65536, 1, 524306, 65536, 1, 524303, 0, 1, 589839, 0, 2, 589840, 65536, 2, 589841, 65536, 2, 655378, 0, 1, 655379, 65536, 1, 589843, 65536, 2, 524307, 65536, 1, 458768, 0, 6, 458769, 0, 7, 131091, 393216, 0, 196627, 393216, 1, 262163, 393216, 2, 720913, 131072, 4, 786449, 0, 2, 720914, 0, 3, 786450, 65536, 2, 786451, 0, 2, 720915, 131072, 4, 655375, 0, 3, 655376, 131072, 4, 720912, 0, 3, 589842, 65536, 2, 655377, 65536, 2, 524308, 65536, 1, 524309, 65536, 1, 524310, 65536, 1, 655380, 65536, 1, 655381, 65536, 1, 655382, 65536, 1, 786452, 65536, 2, 720916, 65536, 2, 720917, 65536, 2, 720918, 65536, 2, 786454, 65536, 2, 786453, 65536, 2, 589844, 65536, 2, 589845, 65536, 2, 589846, 65536, 2, 131092, 458752, 0, 196628, 458752, 1, 262164, 458752, 2, 131093, 524288, 0, 196629, 524288, 1, 262165, 524288, 2, 327700, 393216, 4, 393236, 393216, 4, 458772, 393216, 7, 458771, 262144, 2)
+
+[node name="cliffDecor" type="TileMap" parent="Art"]
+position = Vector2(0, -68)
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_m4jvv")
+format = 2
+layer_0/tile_data = PackedInt32Array(458768, 0, 5, 458769, 0, 8, 458772, 393216, 7, 393236, 393216, 4, 131091, 393216, 0, 196627, 393216, 1, 262163, 393216, 2, 131092, 458752, 0, 196628, 458752, 1, 262164, 458752, 2, 131093, 524288, 0, 196629, 524288, 1, 262165, 524288, 2, 327700, 393216, 4, 458771, 262144, 2, 589842, 262144, 4, 589844, 262144, 7, 589845, 262144, 1)
+
+[node name="Karlach" type="AnimatedSprite2D" parent="Art"]
+position = Vector2(840, 298.005)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ysj2x")
+autoplay = "default"
+flip_h = true
+
+[node name="Menus" type="CanvasLayer" parent="."]
+script = ExtResource("2_wkdmv")
+
+[node name="main" type="Control" parent="Menus"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ddru2")
+
+[node name="CenterContainer" type="CenterContainer" parent="Menus/main"]
+layout_mode = 1
+offset_right = 232.0
+offset_bottom = 164.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Menus/main/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menus/main/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/main/CenterContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Menus/main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "An Adventure"
+vertical_alignment = 1
+
+[node name="newGame" type="Button" parent="Menus/main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "New Game"
+alignment = 0
+
+[node name="Continue" type="Button" parent="Menus/main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+alignment = 0
+
+[node name="Settings" type="Button" parent="Menus/main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0.4, 0.4, 0.4, 1)
+text = "Settings"
+alignment = 0
+
+[node name="Quit" type="Button" parent="Menus/main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+alignment = 0
+
+[node name="settings" type="Control" parent="Menus"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_ddru2")
+
+[node name="CenterContainer" type="CenterContainer" parent="Menus/settings"]
+layout_mode = 1
+offset_right = 332.0
+offset_bottom = 323.0
+scale = Vector2(0.999139, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="Menus/settings/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menus/settings/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/settings/CenterContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Menus/settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Settings"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menus/settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Fullscreen" type="CheckButton" parent="Menus/settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Fullscreen"
+
+[node name="SettingBack" type="Button" parent="Menus/settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "back"
+alignment = 0
+
+[node name="Label" type="Label" parent="Menus"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -48.0
+offset_right = 92.0
+offset_bottom = -23.9995
+grow_vertical = 0
+theme = ExtResource("3_ddru2")
+theme_override_font_sizes/font_size = 16
+text = "B. Kral"
+
+[connection signal="pressed" from="Menus/main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/newGame" to="Menus" method="_on_play_pressed"]
+[connection signal="pressed" from="Menus/main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Settings" to="Menus" method="_on_settings_pressed"]
+[connection signal="pressed" from="Menus/main/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="Menus" method="_on_quit_pressed"]
+[connection signal="toggled" from="Menus/settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Fullscreen" to="Menus" method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="Menus/settings/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/SettingBack" to="Menus" method="_on_setting_back_pressed"]

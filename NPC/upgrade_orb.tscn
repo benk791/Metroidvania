@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://vol5nftp8qpb"]
+
+[ext_resource type="Script" path="res://NPC/UpgradeOrb.gd" id="1_mij2v"]
+[ext_resource type="Texture2D" uid="uid://ciokh14xgwjam" path="res://assets/images/UpgradeSprite.png" id="2_v6um8"]
+[ext_resource type="AudioStream" uid="uid://cn7ethlxs41td" path="res://assets/audio/sfx/Pickup.wav" id="3_kq14k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6h1ga"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfols"]
+atlas = ExtResource("2_v6um8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_std5r"]
+atlas = ExtResource("2_v6um8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwfmn"]
+atlas = ExtResource("2_v6um8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iph84"]
+atlas = ExtResource("2_v6um8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhcjd"]
+atlas = ExtResource("2_v6um8")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t121r"]
+atlas = ExtResource("2_v6um8")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m7rvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfols")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_std5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwfmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iph84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhcjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t121r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="UpgradeOrb" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_mij2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6h1ga")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_m7rvj")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kq14k")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="finished" from="PickupSound" to="." method="_on_pickup_sound_finished"]
