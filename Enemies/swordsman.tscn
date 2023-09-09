@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://cfuc4lrljtc1q"]
+
+[ext_resource type="Script" path="res://Enemies/Swordsman.gd" id="1_slhui"]
+[ext_resource type="Texture2D" uid="uid://dp17fclsypwlo" path="res://assets/images/enemies/Swordsman/Pixilart Sprite Sheet(3).png" id="2_0mng1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta7c8"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an1rp"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf62n"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5668r"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duhld"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62e77"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gm8e"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owcpt"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8am4"]
+atlas = ExtResource("2_0mng1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hr82b"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ta7c8")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_an1rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf62n")
+}],
+"loop": false,
+"name": &"Overhead1",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5668r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duhld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62e77")
+}],
+"loop": false,
+"name": &"Overhead2",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gm8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owcpt")
+}],
+"loop": false,
+"name": &"Overhead3",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8am4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xror"]
+size = Vector2(4, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7aso"]
+size = Vector2(12, 20)
+
+[node name="Swordsman" type="CharacterBody2D"]
+position = Vector2(102, 85)
+script = ExtResource("1_slhui")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hr82b")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 6.5)
+shape = SubResource("RectangleShape2D_1xror")
+
+[node name="Attacks" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="Overhead" type="CollisionShape2D" parent="Attacks"]
+position = Vector2(7, 2)
+shape = SubResource("RectangleShape2D_v7aso")
+disabled = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

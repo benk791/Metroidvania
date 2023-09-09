@@ -1,3 +1,6 @@
+res://assets/images/enemies/Swordsman
+res://Enemies
+res://levels/StartZone/Beach
 res://levels/StartZone
 res://Scripts
 res://NPC
@@ -5,7 +8,6 @@ res://assets/images
 res://
 res://UI
 res://assets/images/enemies/robot_walking
-res://Enemies
 res://assets/fonts
 res://character
 res://assets/audio

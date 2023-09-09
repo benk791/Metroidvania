@@ -14,6 +14,6 @@ func destroy():
 func respawn():
 	Global.PlayerHealth = Global.maxPlayerHealth
 	var Player_instance = Player.instantiate()
-	Player_instance.position = Vector2(0,0)
+	Player_instance.position = Vector2(350, 1000)/2
 	self.add_child(Player_instance)
 	get_tree().paused = false

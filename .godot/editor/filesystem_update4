@@ -1,6 +1,8 @@
+res://levels/StartZone/beach.tscn
 res://character/character.gd
 res://UI/HealthBar.tres
-res://levels/StartZone/beach.tscn
-res://character/character.tscn
 res://character/PlayerSpawn.gd
-res://UI/menu.gd
+res://character/character.tscn
+res://levels/StartZone/Beach/BeachCameraFocus.gd
+res://Enemies/Swordsman.gd
+res://Enemies/swordsman.tscn
